@@ -14,10 +14,11 @@ router.post('/createuser', [
   body('email', 'Enter a valid email id').isEmail(),
   body('password', 'Password must be atleast 5 characters').isLength({ min: 5 })
 ], async (req, res) => {
+  let success = false;
   // if there are errors, return Bad request and the errors
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
-    return res.status(400).json({ errors: errors.array() });
+    return res.status(400).json({ success, errors: errors.array() });
   }
 
   //check whether the user with this email exists already
@@ -26,7 +27,7 @@ router.post('/createuser', [
 
     let user = await User.findOne({ email: req.body.email });
     if (user) {
-      return res.status(400).json({ error: "User with this email address alredy exists !" })
+      return res.status(400).json({ success, error: "User with this email address alredy exists !" })
     }
 
     const salt = await bcrypt.genSalt(10);
@@ -48,7 +49,8 @@ router.post('/createuser', [
 
 
     // res.json(user)
-    res.json({ authtoken })
+    success = true;
+    res.json({ success, authtoken })
   }
   catch (error) {
     console.error(error.message);
