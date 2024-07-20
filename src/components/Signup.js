@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
-const Signup = () => {
+const Signup = (props) => {
 
   const [credentials, setCredentials] = useState({ name: "", email: "", password: "", cpassword: "" })
   let navigate = useNavigate();
@@ -19,13 +19,14 @@ const Signup = () => {
 
     const json = await response.json()
     console.log(json);
-    if(json.success){
+    if (json.success) {
       // save the authtoken and redirect
       localStorage.setItem('token', json.authtoken);
       navigate("/");
+      props.showAlert("Account Created Successfully ", "success")
     }
-    else{
-      alert("Invalid Credentials !");
+    else {
+      props.showAlert("Invalid Credentials", "danger")
     }
   }
 
@@ -49,12 +50,12 @@ const Signup = () => {
 
         <div className="mb-3">
           <label htmlFor="password" className="form-label">Password</label>
-          <input type="password" className="form-control" id="password" name="password" onChange={onChange} minLength={5} required/>
+          <input type="password" className="form-control" id="password" name="password" onChange={onChange} minLength={5} required />
         </div>
 
         <div className="mb-3">
           <label htmlFor="cpassword" className="form-label">Confirm Password</label>
-          <input type="password" className="form-control" id="cpassword" name="cpassword" onChange={onChange} minLength={5} required/>
+          <input type="password" className="form-control" id="cpassword" name="cpassword" onChange={onChange} minLength={5} required />
         </div>
 
         <button type="submit" className="btn btn-primary">Submit</button>
