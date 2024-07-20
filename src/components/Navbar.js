@@ -30,7 +30,7 @@ const Navbar = () => {
 
                     </ul>
                     {!localStorage.getItem('token') ? <form className="d-flex" role="search">
-                        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                        {/* <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" /> */}
                         <Link className="btn btn-primary mx-1" to="/login" role="button">Login</Link>
                         <Link className="btn btn-primary mx-1" to="/signup" role="button">Signup</Link>
                     </form> : <button onClick={handleLogout} className='btn btn-primary'>Logout</button>}
