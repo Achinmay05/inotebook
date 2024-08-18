@@ -31,3 +31,15 @@ i{
 #emailHelp{
   color: aliceblue;
 }
+
+#exampleModalLabel{
+  color: #0d1b2a;
+}
+
+.form-label{
+  color: aliceblue;
+}
+
+#uTag, #uDescription, #uTitle{
+  color: #0d1b2a;
+}

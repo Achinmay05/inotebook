@@ -4,10 +4,7 @@
   "description": "iNotebook - notebook on the cloud ",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "ts-node-dev --respawn src/Union.ts",
-    "serve": "ts-node-dev src/function.ts",
-    "build": "tsc"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
