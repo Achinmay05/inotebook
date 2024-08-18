@@ -5,6 +5,18 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #0d1b2a, #1b263b, #415a77);
+  background-size: 200% 200%;
+  animation: darkBlueTransition 10s ease infinite;
+  color: aliceblue;
+}
+
+@keyframes darkBlueTransition {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 code {
@@ -14,4 +26,8 @@ code {
 
 i{
   cursor: pointer;
+}
+
+#emailHelp{
+  color: aliceblue;
 }
