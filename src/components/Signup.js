@@ -9,7 +9,7 @@ const Signup = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { name, email, password } = credentials;
-    const response = await fetch("http://localhost:5000/api/auth/createuser", {
+    const response = await fetch("https://app05-cpg3hvezbtgxcfb3.eastus-01.azurewebsites.net/api/auth/createuser", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

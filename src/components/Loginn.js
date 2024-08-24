@@ -9,7 +9,7 @@ const Loginn = (props) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const response = await fetch("http://localhost:5000/api/auth/login", {
+        const response = await fetch("https://app05-cpg3hvezbtgxcfb3.eastus-01.azurewebsites.net/api/auth/login", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
